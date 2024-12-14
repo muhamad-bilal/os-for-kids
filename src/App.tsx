@@ -2,7 +2,9 @@ import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-route
 import { Github } from 'lucide-react';
 import PSV from './pages/psv';
 import MAS from './pages/mas.tsx'; 
-import MSV from './pages/msv'; 
+import MSV from './pages/msv';
+import DEAD from './pages/dead'; 
+
 
 function Home() {
   const navigate = useNavigate();
@@ -73,6 +75,7 @@ export default function App() {
         <Route path="/psv" element={<PSV />} />
         <Route path="/mas" element={<MAS />} />
         <Route path="/msv" element={<MSV />} />
+        <Route path="/dead" element={<DEAD />} />
       </Routes>
     </Router>
   );
