@@ -225,23 +225,16 @@ const DeadlockDetection: React.FC = () => {
     };
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-green-900 p-6">
-            <div className="max-w-[1200px] mx-auto space-y-8">
-                {/* Header Section */}
-                <div className="text-center space-y-2">
-                    <h1 className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-green-300">
-                        Deadlock Detection System
-                    </h1>
-                    <p className="text-gray-400">Advanced resource management and detection tool</p>
-                </div>
+        <div className="w-full flex justify-center items-start bg-gradient-to-br from-black via-gray-900 to-green-900 min-h-screen p-6">
+            <div className="max-w-[1200px] w-full">
+                <h1 className="text-4xl font-bold text-emerald-400 mb-8 text-center">
+                    Enhanced Deadlock Detection and Prevention Tool
+                </h1>
     
-                {/* Resources Card */}
-                <div className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 shadow-xl border border-gray-700">
-                    <h2 className="text-2xl font-semibold text-emerald-400 mb-4">Available Resources</h2>
+                <div className="mb-8">
+                    <h2 className="text-xl text-emerald-400 mb-2">Available Resources</h2>
                     <input
-                        className="w-full p-3 rounded-lg bg-gray-900/50 border border-gray-600 text-gray-200 
-                                 placeholder-gray-500 focus:ring-2 focus:ring-emerald-500 focus:border-transparent
-                                 transition duration-200"
+                        className="w-full p-2 rounded bg-gray-800 border border-gray-700 text-gray-200"
                         type="text"
                         placeholder="Enter available resources (comma-separated)"
                         onChange={(e) =>
@@ -250,117 +243,110 @@ const DeadlockDetection: React.FC = () => {
                     />
                 </div>
     
-                {/* Process Addition Card */}
-                <div className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 shadow-xl border border-gray-700">
-                    <h2 className="text-2xl font-semibold text-emerald-400 mb-4">Add New Process</h2>
+                <div className="mb-8">
+                    <h2 className="text-xl text-emerald-400 mb-2">Add Process</h2>
                     <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-                        {['Process Name', 'Allocation', 'Max', 'Priority'].map((label) => (
-                            <input
-                                key={label}
-                                className="p-3 rounded-lg bg-gray-900/50 border border-gray-600 text-gray-200 
-                                         placeholder-gray-500 focus:ring-2 focus:ring-emerald-500 focus:border-transparent
-                                         transition duration-200"
-                                type={label === 'Priority' ? 'number' : 'text'}
-                                id={label.toLowerCase().replace(' ', '')}
-                                placeholder={label}
-                            />
-                        ))}
+                        <input
+                            className="p-2 rounded bg-gray-800 border border-gray-700 text-gray-200"
+                            type="text"
+                            id="processName"
+                            placeholder="Process Name"
+                        />
+                        <input
+                            className="p-2 rounded bg-gray-800 border border-gray-700 text-gray-200"
+                            type="text"
+                            id="allocation"
+                            placeholder="Allocation (comma-separated)"
+                        />
+                        <input
+                            className="p-2 rounded bg-gray-800 border border-gray-700 text-gray-200"
+                            type="text"
+                            id="max"
+                            placeholder="Max (comma-separated)"
+                        />
+                        <input
+                            className="p-2 rounded bg-gray-800 border border-gray-700 text-gray-200"
+                            type="number"
+                            id="priority"
+                            placeholder="Priority"
+                        />
                     </div>
                     <button
-                        className="mt-4 px-6 py-3 bg-gradient-to-r from-emerald-600 to-green-600 text-white 
-                                 font-semibold rounded-lg hover:from-emerald-700 hover:to-green-700 
-                                 transition duration-200 shadow-lg"
+                        className="mt-4 px-4 py-2 bg-emerald-600 text-black font-bold rounded hover:bg-emerald-700"
                         onClick={handleProcessSubmit}
                     >
                         Add Process
                     </button>
                 </div>
     
-                {/* Process List */}
-                <div className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 shadow-xl border border-gray-700">
-                    <h2 className="text-2xl font-semibold text-emerald-400 mb-4">Active Processes</h2>
-                    <div className="space-y-3">
+                <div className="mb-8">
+                    <h2 className="text-xl text-emerald-400 mb-2">Processes</h2>
+                    <ul className="space-y-4">
                         {processes.map(({ process, allocation, max, need, priority }) => (
-                            <div key={process} 
-                                 className="p-4 rounded-lg bg-gray-900/50 border border-gray-700
-                                            hover:border-emerald-500 transition duration-200">
-                                <div className="flex items-center justify-between">
-                                    <div>
-                                        <span className="text-lg font-semibold text-emerald-400">{process}</span>
-                                        <div className="text-gray-400 mt-1 space-x-4">
-                                            <span>Priority: {priority}</span>
-                                            <span>Allocation: {allocation.join(', ')}</span>
-                                            <span>Max: {max.join(', ')}</span>
-                                            <span>Need: {need.join(', ')}</span>
-                                        </div>
-                                    </div>
-                                    <button
-                                        className="px-4 py-2 bg-red-500/80 hover:bg-red-600 text-white 
-                                                 font-semibold rounded-lg transition duration-200"
-                                        onClick={() => releaseResources(process)}
-                                    >
-                                        Release
-                                    </button>
-                                </div>
-                            </div>
+                            <li key={process} className="p-4 rounded bg-gray-800 border border-gray-700">
+                                <strong className="text-emerald-400">{process}</strong>
+                                <span className="ml-2 text-gray-300">
+                                    Priority: {priority} |
+                                    Allocation: {allocation.join(', ')} |
+                                    Max: {max.join(', ')} |
+                                    Need: {need.join(', ')}
+                                </span>
+                                <button
+                                    className="ml-4 px-2 py-1 bg-red-500 text-black font-bold rounded hover:bg-red-600"
+                                    onClick={() => releaseResources(process)}
+                                >
+                                    Release
+                                </button>
+                            </li>
                         ))}
-                    </div>
+                    </ul>
                 </div>
     
-                {/* Safety Check Section */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 shadow-xl border border-gray-700">
-                        <h2 className="text-2xl font-semibold text-emerald-400 mb-4">Safety Analysis</h2>
-                        <button
-                            className="w-full px-6 py-3 bg-gradient-to-r from-emerald-600 to-green-600 
-                                     text-white font-semibold rounded-lg hover:from-emerald-700 
-                                     hover:to-green-700 transition duration-200 shadow-lg"
-                            onClick={runBankersAlgorithm}
-                        >
-                            Run Banker's Algorithm
-                        </button>
-                        {isSafe !== null && (
-                            <div className="mt-4 p-4 rounded-lg bg-gray-900/50">
-                                {isSafe ? (
-                                    <p className="text-emerald-400 font-medium">
-                                        System Status: <span className="font-bold">Safe</span>
-                                        <br />
-                                        Safe Sequence: {safeSequence.join(' → ')}
-                                    </p>
-                                ) : (
-                                    <p className="text-red-400 font-medium">
-                                        System Status: <span className="font-bold">Deadlocked</span>
-                                        <br />
-                                        No safe sequence available
-                                    </p>
-                                )}
-                            </div>
-                        )}
-                    </div>
-    
-                    {/* System Log */}
-                    <div className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 shadow-xl border border-gray-700">
-                        <h2 className="text-2xl font-semibold text-emerald-400 mb-4">System Log</h2>
-                        <div className="h-64 overflow-y-auto rounded-lg bg-gray-900/50 p-4 border border-gray-700">
-                            <ul className="space-y-2">
-                                {log.map((entry, index) => (
-                                    <li key={index} className="text-gray-400 font-mono text-sm">
-                                        {entry}
-                                    </li>
-                                ))}
-                            </ul>
+                <div className="mb-8">
+                    <h2 className="text-xl text-emerald-400 mb-2">Check Safety</h2>
+                    <button
+                        className="px-4 py-2 bg-emerald-600 text-black font-bold rounded hover:bg-emerald-700"
+                        onClick={runBankersAlgorithm}
+                    >
+                        Run Banker's Algorithm
+                    </button>
+                    {isSafe !== null && (
+                        <div className="mt-4">
+                            {isSafe ? (
+                                <p className="text-emerald-400">
+                                    The system is in a <strong>safe state</strong>.
+                                    Safe sequence: {safeSequence.join(' -> ')}.
+                                </p>
+                            ) : (
+                                <p className="text-red-500">
+                                    The system is in a <strong>deadlock state</strong>.
+                                    No safe sequence exists.
+                                </p>
+                            )}
                         </div>
+                    )}
+                </div>
+    
+                <div className="mb-8">
+                    <h2 className="text-xl text-emerald-400 mb-2">System Log</h2>
+                    <div className="p-4 rounded bg-gray-800 border border-gray-700 h-64">
+                        <ul className="space-y-2">
+                            {log.map((entry, index) => (
+                                <li key={index} className="text-gray-400">
+                                    {entry}
+                                </li>
+                            ))}
+                        </ul>
                     </div>
                 </div>
     
-                {/* Resource Allocation Graph */}
-                <div className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 shadow-xl border border-gray-700">
-                    <h2 className="text-2xl font-semibold text-emerald-400 mb-4">Resource Allocation Graph</h2>
-                    <div className="bg-gray-900/50 rounded-lg border border-gray-700 p-4">
+                <div className="mb-8">
+                    <h2 className="text-xl text-emerald-400 mb-2">Resource Allocation Graph</h2>
+                    <div className="bg-gray-900 border border-gray-700 rounded p-4">
                         <svg 
                             ref={svgRef}
                             className="w-full"
-                            style={{ minHeight: "500px" }}
+                            style={{ height: "500px" }}
                         />
                     </div>
                 </div>
