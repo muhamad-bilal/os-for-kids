@@ -19,7 +19,7 @@ function Home() {
   const creators = [
     { name: 'Muhammad Bilal', github: 'https://github.com/muhamad-bilal' },
     { name: 'Abdullah Mustafa', github: 'https://github.com/rimocide' },
-    { name: 'Umer Sami', github: 'https://github.com/umersami' },
+    { name: 'Umer Sami', github: 'https://github.com/MoUmerSami2004' },
     { name: 'Hamza Motiwala', github: 'https://github.com/moti987' },
   ];
 
