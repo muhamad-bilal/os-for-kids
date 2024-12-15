@@ -228,7 +228,7 @@ const DeadlockDetection: React.FC = () => {
         <div className="w-full flex justify-center items-start bg-gradient-to-br from-black via-gray-900 to-green-900 min-h-screen p-6">
             <div className="max-w-[1200px] w-full">
                 <h1 className="text-4xl font-bold text-emerald-400 mb-8 text-center">
-                    Enhanced Deadlock Detection and Prevention Tool
+                    Enhanced Deadlock Simulation
                 </h1>
     
                 <div className="mb-8">

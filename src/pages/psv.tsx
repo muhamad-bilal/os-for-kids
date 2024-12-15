@@ -287,7 +287,7 @@ export default function ProcessSchedulerVisualizer() {
         <div className="flex-1 w-full flex flex-row justify-between gap-8">
           {/* Left side container with table */}
           <div className="w-1/2 flex flex-col">
-            <div className="bg-gradient-to-br from-gray-800 via-black to-green-900 p-6 rounded-lg shadow-lg grow border border-green-700">
+            <div className="bg-gradient-to-br from-black via-gray-900 to-green-900 p-6 rounded-lg shadow-lg grow border border-green-700">
               <h3 className="text-2xl font-semibold text-green-400 mb-4">Choose Scheduling Algorithm</h3>
               <form id="algorithm" className="mb-8 flex items-center justify-center gap-4">
                 {['fcfs', 'sjf', 'priority', 'robin'].map((algo) => (
@@ -430,7 +430,7 @@ export default function ProcessSchedulerVisualizer() {
 
           {/* Right side container with visualization */}
           <div className="w-1/2 flex flex-col">
-            <div className="bg-gradient-to-br from-gray-800 via-black to-green-900 p-6 rounded-lg shadow-lg grow border border-green-700">
+            <div className="bg-gradient-to-br from-black via-gray-900 to-green-900 p-6 rounded-lg shadow-lg grow border border-green-700">
               <h3 className="text-2xl font-semibold text-green-400 mb-4">Visualization</h3>
               <div className="flex-1 rounded-lg p-4">
                 {executionSteps.length > 0 ? (

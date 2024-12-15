@@ -280,7 +280,7 @@ const EnhancedMemoryAllocationSimulator = () => {
                 {/* Control Panel */}
                 <div className="grid md:grid-cols-3 gap-6">
                     {/* Memory Configuration */}
-                    <div className="bg-gradient-to-br from-gray-800 via-black to-green-900 rounded-xl shadow-lg p-6">
+                    <div className="bg-gradient-to-br from-black via-gray-900 to-green-900 rounded-xl shadow-lg p-6">
                         <h3 className="text-xl font-semibold mb-4 flex items-center text-green-400">
                             <Cpu className="mr-2" /> Memory Configuration
                         </h3>
@@ -316,7 +316,7 @@ const EnhancedMemoryAllocationSimulator = () => {
                     </div>
 
                     {/* Process Creation */}
-                    <div className="bg-gradient-to-br from-gray-800 via-black to-green-900 rounded-xl shadow-lg p-6">
+                    <div className="bg-gradient-to-br from-black via-gray-900 to-green-900 rounded-xl shadow-lg p-6">
                         <h3 className="text-xl font-semibold mb-4 flex items-center text-green-400">
                             <MemoryStick className="mr-2" /> Create Process
                         </h3>
@@ -358,7 +358,7 @@ const EnhancedMemoryAllocationSimulator = () => {
                     </div>
 
                     {/* Memory Statistics */}
-                    <div className="bg-gradient-to-br from-gray-800 via-black to-green-900 rounded-xl shadow-lg p-6">
+                    <div className="bg-gradient-to-br from-black via-gray-900 to-green-900 rounded-xl shadow-lg p-6">
                         <h3 className="text-xl font-semibold mb-4 flex items-center text-green-400">
                             <PieChart className="mr-2" /> Memory Statistics
                         </h3>
@@ -399,7 +399,7 @@ const EnhancedMemoryAllocationSimulator = () => {
                 </div>
 
                 {/* Memory Visualization */}
-                <div className="bg-gradient-to-br from-gray-800 via-black to-green-900 rounded-xl shadow-lg p-6">
+                <div className="bg-gradient-to-br from-black via-gray-900 to-green-900 rounded-xl shadow-lg p-6">
                     <div className="flex justify-between items-center mb-4">
                         <h3 className="text-xl font-semibold flex items-center text-green-400">
                             <Layers className="mr-2" /> Memory Blocks
@@ -476,7 +476,7 @@ const EnhancedMemoryAllocationSimulator = () => {
                 </div>
 
                 {/* Process History */}
-                <div className="bg-gradient-to-br from-gray-800 via-black to-green-900 rounded-xl shadow-lg p-6">
+                <div className="bg-gradient-to-br from-black via-gray-900 to-green-900 rounded-xl shadow-lg p-6">
                     <h3 className="text-xl font-semibold mb-4 flex items-center text-green-400">
                         <Shuffle className="mr-2" /> Process History
                     </h3>
