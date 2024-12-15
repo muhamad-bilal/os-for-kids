@@ -1,50 +1,67 @@
-# React + TypeScript + Vite
+<h1 align="center" id="title">Operating System Basic Concept Visualization</h1>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<p align="center"><img src="https://socialify.git.ci/muhamad-bilal/os-for-kids/image?font=Source%20Code%20Pro&amp;language=1&amp;name=1&amp;pattern=Solid&amp;theme=Dark" alt="project-image"></p>
 
-Currently, two official plugins are available:
+<p id="description">
+  <strong>OS for Kids</strong> is an educational project designed to simulate and visualize various operating system concepts tailored for a younger audience. It provides an interactive and engaging platform to learn about process scheduling, memory allocation, deadlock detection, and sorting algorithms. The project uses modern web technologies, including React and TypeScript, to deliver a responsive and user-friendly experience.
+</p>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+![image](https://github.com/user-attachments/assets/df07d3fd-38c1-494f-b89d-2c35b7bae054)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-- Configure the top-level `parserOptions` property like this:
+  
+  
+<h2>Modules</h2>
+<ol>
+  <li>
+    <h3>Deadlock Detection</h3>
+    <p>Detect potential deadlocks in a simulated environment using Banker's Algorithm. Visualize the state of the system through resource allocation graphs.</p>
+  </li>
+  <li>
+    <h3>Memory Allocation Simulator</h3>
+    <p>Explore memory allocation techniques with strategies like Best Fit, First Fit, Worst Fit, and Next Fit. Visualize memory usage and fragmentation.</p>
+  </li>
+  <li>
+    <h3>Sorting Visualizer</h3>
+    <p>Understand sorting concepts with algorithms such as Parallel Quick Sort, Merge Sort, and Bucket Sort. Adjustable speed and size make it interactive and educational.</p>
+  </li>
+  <li>
+    <h3>Process Scheduler Visualizer</h3>
+    <p>Visualize scheduling techniques like FCFS, SJF, Priority Scheduling, and Round Robin. Features Gantt chart visualizations for better understanding.</p>
+  </li>
+</ol>
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+<h2>🛠️ Installation Steps:</h2>
+
+<p>1. Clone the repository:</p>
+
+```
+git clone https://github.com/muhamad-bilal/os-for-kids.git
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+<p>2. Install dependencies:</p>
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
 ```
+npm install
+```
+
+<p>3. Start the development server:</p>
+
+```
+npm run dev
+```
+
+  
+  
+<h2>💻 Built with</h2>
+
+Technologies used in the project:
+
+*   Emscripten
+*   React
+*   TypeScript
+*   Vite
+*   D3.js
+*   TailwindCSS
+*   C 
