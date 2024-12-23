@@ -329,7 +329,7 @@ const DeadlockDetection: React.FC = () => {
     
                 <div className="mb-8">
                     <h2 className="text-xl text-emerald-400 mb-2">System Log</h2>
-                    <div className="p-4 rounded bg-gray-800 border border-gray-700 h-64">
+                    <div className="p-4 rounded bg-gray-800 border border-gray-700 h-64 overflow-auto">
                         <ul className="space-y-2">
                             {log.map((entry, index) => (
                                 <li key={index} className="text-gray-400">
