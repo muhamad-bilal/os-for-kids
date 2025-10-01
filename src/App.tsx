@@ -1,82 +1,98 @@
-import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
-import { Github } from 'lucide-react';
-import PSV from './pages/psv';
-import MAS from './pages/mas.tsx'; 
-import MSV from './pages/msv';
-import DEAD from './pages/dead'; 
+import { Timer, MemoryStick, Lock, ArrowUpDown, ArrowRight } from "lucide-react"
+import { Card, CardHeader, CardTitle, CardContent, CardFooter } from "./components/ui/card"
+import CreatorsFooter from "./components/creators-footer"
 
+const algorithms = [
+  {
+    label: "Process Scheduler Visualizer",
+    href: "/psv",
+    desc: "Explore scheduling algorithms and timelines.",
+    icon: Timer,
+  },
+  {
+    label: "Memory Allocation Simulator",
+    href: "/mas",
+    desc: "Simulate allocation strategies and fragmentation.",
+    icon: MemoryStick,
+  },
+  {
+    label: "Deadlock Detection & Prevention",
+    href: "/dead",
+    desc: "Study detection, avoidance, and prevention.",
+    icon: Lock,
+  },
+  {
+    label: "Multithreaded Sorting Visualizer",
+    href: "/msv",
+    desc: "See concurrent sorting behaviors in action.",
+    icon: ArrowUpDown,
+  },
+]
 
-function Home() {
-  const navigate = useNavigate();
+const creators = [
+  { name: "Muhammad Bilal", github: "https://github.com/muhamad-bilal" },
+  { name: "Abdullah Mustafa", github: "https://github.com/rimocide" },
+  { name: "Umer Sami", github: "https://github.com/MoUmerSami2004" },
+  { name: "Hamza Motiwala", github: "https://github.com/moti987" },
+]
 
-  const buttons = [
-    { label: 'Process Scheduler Visualizer', route: '/psv' },
-    { label: 'Memory Allocation Simulator', route: '/mas' },
-    { label: 'Deadlock Detection and Prevention Tool', route: '/dead' },
-    { label: 'Multithreaded Sorting Visualizer', route: '/msv' },
-  ];
-
-  const creators = [
-    { name: 'Muhammad Bilal', github: 'https://github.com/muhamad-bilal' },
-    { name: 'Abdullah Mustafa', github: 'https://github.com/rimocide' },
-    { name: 'Umer Sami', github: 'https://github.com/MoUmerSami2004' },
-    { name: 'Hamza Motiwala', github: 'https://github.com/moti987' },
-  ];
-
+export default function Home() {
   return (
-    <div className="h-screen w-screen bg-gradient-to-br from-black via-gray-900 to-green-900 flex flex-col items-center justify-between px-8 py-4 text-white">
-      <div className="w-full flex-grow flex flex-col justify-center">
-        <h1 className="text-4xl md:text-5xl font-bold text-green-400 mb-4 text-center">
-          Operating System Basics
-        </h1>
-        <h2 className="text-xl md:text-2xl text-gray-300 mb-12 text-center">
-          This website is for anyone struggling to grasp the basics of the Operating Systems course.
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {buttons.map((button, index) => (
-            <button
-              key={index}
-              className="bg-gradient-to-r from-gray-800 to-green-800 text-white font-semibold py-4 px-6 w-full rounded-xl shadow-lg border border-green-700 text-center transition-all duration-300 ease-in-out hover:bg-green-900 focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-opacity-50"
-              onClick={() => {
-                if (button.route) navigate(button.route);
-              }}
-            >
-              {button.label}
-            </button>
-          ))}
+    // apply dark token context for proper contrast on dark gradient
+    <div className="dark">
+      <main className="min-h-dvh w-full bg-gradient-to-br from-(--brand-start) via-(--brand-via) to-(--brand-end)">
+        <div className="mx-auto max-w-6xl px-6 py-10 flex min-h-dvh flex-col">
+          <header className="mb-10 text-center">
+            <h1 className="text-balance text-4xl md:text-5xl font-bold text-brand-primary">
+              Operating System Basics
+            </h1>
+            <p className="mt-4 text-pretty text-base md:text-lg text-muted-foreground">
+              This website is for anyone struggling to grasp the basics of the Operating Systems course.
+            </p>
+          </header>
+
+          <section className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {algorithms.map((item) => {
+              const Icon = item.icon
+              return (
+                <a 
+                  key={item.href} 
+                  href={item.href} 
+                  aria-label={item.label} 
+                  className="group"
+                >
+                  <Card className="bg-surface-secondary/70 border border-border backdrop-blur-sm transition-all duration-200 hover:border-brand-primary hover:shadow-lg">
+                    <CardHeader>
+                      <div className="flex items-center gap-3">
+                        <Icon className="h-5 w-5 text-brand-primary" aria-hidden />
+                        <CardTitle className="text-xl md:text-2xl text-foreground">
+                          {item.label}
+                        </CardTitle>
+                      </div>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-sm text-muted-foreground">{item.desc}</p>
+                    </CardContent>
+                    <CardFooter className="flex items-center justify-between">
+                      <span className="text-sm text-brand-primary opacity-90 group-hover:opacity-100 transition-opacity">
+                        Open tool
+                      </span>
+                      <ArrowRight
+                        className="h-4 w-4 text-brand-primary/80 group-hover:text-brand-primary transition-colors"
+                        aria-hidden
+                      />
+                    </CardFooter>
+                  </Card>
+                </a>
+              )
+            })}
+          </section>
+
+          <footer className="mt-auto pt-12">
+            <CreatorsFooter creators={creators} />
+          </footer>
         </div>
-      </div>
-      <footer className="mt-8 text-gray-400">
-        <p className="mb-2 text-center">Created by:</p>
-        <div className="flex flex-wrap justify-center gap-4">
-          {creators.map((creator, index) => (
-            <a
-              key={index}
-              href={creator.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center space-x-2 bg-gray-800 px-3 py-2 rounded-full shadow-md hover:bg-green-900 transition-colors duration-300"
-            >
-              <Github size={20} className="text-green-400" />
-              <span>{creator.name}</span>
-            </a>
-          ))}
-        </div>
-      </footer>
+      </main>
     </div>
-  );
-}
-
-export default function App() {
-  return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/psv" element={<PSV />} />
-        <Route path="/mas" element={<MAS />} />
-        <Route path="/msv" element={<MSV />} />
-        <Route path="/dead" element={<DEAD />} />
-      </Routes>
-    </Router>
-  );
+  )
 }
